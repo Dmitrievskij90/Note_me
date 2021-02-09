@@ -16,6 +16,10 @@ class NoteViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let notes = defaults.array(forKey: "notes") as? [String] {
+            notesArray = notes
+        }
 
     }
 
