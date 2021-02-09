@@ -11,6 +11,8 @@ import UIKit
 class NoteViewController: UITableViewController {
     
     var notesArray = ["one", "two", "three"]
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,7 @@ class NoteViewController: UITableViewController {
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
             self.notesArray.append(textField.text!)
+            self.defaults.set(self.notesArray, forKey: "notes")
             
             self.tableView.reloadData()
             
