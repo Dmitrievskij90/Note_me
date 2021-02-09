@@ -10,16 +10,24 @@ import UIKit
 
 class NoteViewController: UITableViewController {
     
-    var notesArray = ["one", "two", "three"]
+    var notesArray = [Note]()
     
     let defaults = UserDefaults.standard
+    
+     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Note.plist")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let notes = defaults.array(forKey: "notes") as? [String] {
-            notesArray = notes
-        }
+        print(dataFilePath)
+        
+        let newNote = Note()
+        newNote.title = "hello"
+        notesArray.append(newNote)
+        
+//        if let notes = defaults.array(forKey: "notes") as? [Note] {
+//            notesArray = notes
+//        }
 
     }
 
@@ -32,7 +40,11 @@ class NoteViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
         
-        cell.textLabel?.text = notesArray[indexPath.row]
+        cell.textLabel?.text = notesArray[indexPath.row].title
+        
+        let note = notesArray[indexPath.row].done
+        
+        cell.accessoryType = note ? .checkmark : .none
         
         return cell
         
@@ -40,12 +52,16 @@ class NoteViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if  tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+        notesArray[indexPath.row].done = !notesArray[indexPath.row].done
+        
+        saveData()
+        
+//        if  tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+//
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+//        } else {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//        }
         
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -59,10 +75,15 @@ class NoteViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
-            self.notesArray.append(textField.text!)
-            self.defaults.set(self.notesArray, forKey: "notes")
+            let newNote = Note()
+            newNote.title = textField.text!
             
-            self.tableView.reloadData()
+            self.notesArray.append(newNote)
+            
+//            self.defaults.set(self.notesArray, forKey: "notes")
+            
+            self.saveData()
+            
             
         }
         
@@ -76,6 +97,20 @@ class NoteViewController: UITableViewController {
             textField = alertTextField
         }
         
+    }
+    
+    func saveData() {
+        
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(self.notesArray)
+            try data.write(to: self.dataFilePath!)
+        } catch {
+            print("Error\(error)")
+        }
+        
+        self.tableView.reloadData()
     }
     
     
