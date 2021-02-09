@@ -29,7 +29,14 @@
                             <outlet property="delegate" destination="ym1-VM-jBD" id="ohK-vx-GVM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notes" largeTitleDisplayMode="always" id="elI-BE-jfU"/>
+                    <navigationItem key="navigationItem" title="Notes" largeTitleDisplayMode="always" id="elI-BE-jfU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CIA-iI-1DC">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="ym1-VM-jBD" id="8k9-X2-Ykn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MqA-LX-n9Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
