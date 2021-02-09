@@ -28,7 +28,7 @@ class NoteViewController: UITableViewController {
 //        if let notes = defaults.array(forKey: "notes") as? [Note] {
 //            notesArray = notes
 //        }
-
+        loadNotes()
     }
 
 
@@ -113,6 +113,21 @@ class NoteViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    func loadNotes() {
+        
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            
+            let decoder = PropertyListDecoder()
+            
+            do {
+                notesArray = try decoder.decode([Note].self, from: data)
+            } catch {
+                print("Error with load data - \(error)")
+            }
+            
+        }
+        
+    }
     
 }
 
