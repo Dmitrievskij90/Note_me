@@ -17,21 +17,23 @@ class NoteViewController: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Note.plist")
+//     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Note.plist")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        print(dataFilePath)
-//
-//        let newNote = Notes()
-//        newNote.title = "hello"
-//        notesArray.append(newNote)
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-//        if let notes = defaults.array(forKey: "notes") as? [Note] {
-//            notesArray = notes
-//        }
-//        loadNotes()
+        //        print(dataFilePath)
+        //
+        //        let newNote = Notes()
+        //        newNote.title = "hello"
+        //        notesArray.append(newNote)
+        
+        //        if let notes = defaults.array(forKey: "notes") as? [Note] {
+        //            notesArray = notes
+        //        }
+                loadNotes()
     }
 
 
@@ -107,21 +109,17 @@ class NoteViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-//    func loadNotes() {
-//
-//        if let data = try? Data(contentsOf: dataFilePath!) {
-//
-//            let decoder = PropertyListDecoder()
-//
-//            do {
-//                notesArray = try decoder.decode([Note].self, from: data)
-//            } catch {
-//                print("Error with load data - \(error)")
-//            }
-//
-//        }
-//
-//    }
+    func loadNotes() {
+
+        let request: NSFetchRequest<Notes> = Notes.fetchRequest()
+        
+        do{
+            notesArray = try context.fetch(request)
+        } catch {
+            print("Error \(error)")
+        }
+
+    }
     
 }
 
