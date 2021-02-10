@@ -58,6 +58,9 @@ class NoteViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         notesArray[indexPath.row].done = !notesArray[indexPath.row].done
+        //
+        //        context.delete(notesArray[indexPath.row])
+        //        notesArray.remove(at: indexPath.row)
         
         saveData()
         
