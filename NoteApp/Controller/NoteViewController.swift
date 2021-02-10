@@ -7,28 +7,31 @@
 //
 
 import UIKit
+import CoreData
 
 class NoteViewController: UITableViewController {
     
-    var notesArray = [Note]()
+    var notesArray = [Notes]()
     
     let defaults = UserDefaults.standard
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
      let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Note.plist")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(dataFilePath)
-        
-        let newNote = Note()
-        newNote.title = "hello"
-        notesArray.append(newNote)
+//        print(dataFilePath)
+//
+//        let newNote = Notes()
+//        newNote.title = "hello"
+//        notesArray.append(newNote)
         
 //        if let notes = defaults.array(forKey: "notes") as? [Note] {
 //            notesArray = notes
 //        }
-        loadNotes()
+//        loadNotes()
     }
 
 
@@ -68,8 +71,9 @@ class NoteViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
-            let newNote = Note()
+            let newNote = Notes(context: self.context)
             newNote.title = textField.text!
+            newNote.done = false
             
             self.notesArray.append(newNote)
             
@@ -94,11 +98,8 @@ class NoteViewController: UITableViewController {
     
     func saveData() {
         
-        let encoder = PropertyListEncoder()
-        
         do {
-            let data = try encoder.encode(self.notesArray)
-            try data.write(to: self.dataFilePath!)
+            try context.save()
         } catch {
             print("Error\(error)")
         }
@@ -106,21 +107,21 @@ class NoteViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadNotes() {
-        
-        if let data = try? Data(contentsOf: dataFilePath!) {
-            
-            let decoder = PropertyListDecoder()
-            
-            do {
-                notesArray = try decoder.decode([Note].self, from: data)
-            } catch {
-                print("Error with load data - \(error)")
-            }
-            
-        }
-        
-    }
+//    func loadNotes() {
+//
+//        if let data = try? Data(contentsOf: dataFilePath!) {
+//
+//            let decoder = PropertyListDecoder()
+//
+//            do {
+//                notesArray = try decoder.decode([Note].self, from: data)
+//            } catch {
+//                print("Error with load data - \(error)")
+//            }
+//
+//        }
+//
+//    }
     
 }
 
