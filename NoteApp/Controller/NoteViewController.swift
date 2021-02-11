@@ -117,16 +117,16 @@ class NoteViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadNotes() {
+    func loadNotes(with request: NSFetchRequest<Notes> = Notes.fetchRequest()) {
 
-        let request: NSFetchRequest<Notes> = Notes.fetchRequest()
+//     let request: NSFetchRequest<Notes> = Notes.fetchRequest()
         
         do{
             notesArray = try context.fetch(request)
         } catch {
             print("Error \(error)")
         }
-
+        tableView.reloadData()
     }
     
 }
@@ -141,12 +141,7 @@ extension NoteViewController: UISearchBarDelegate {
         
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
-        do {
-            notesArray = try context.fetch(request)
-        } catch {
-            print("Error \(error)")
-        }
-        tableView.reloadData()
+        loadNotes(with: request)
     }
     
 }
