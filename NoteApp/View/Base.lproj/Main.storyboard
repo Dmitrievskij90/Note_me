@@ -6,6 +6,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Category Table View Controller-->
+        <scene sceneID="TCL-fI-Cyw">
+            <objects>
+                <tableViewController id="c0L-lx-Dp1" customClass="CategoryTableViewController" customModule="NoteApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BB3-39-7Ag">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="34d-2a-EBs">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="34d-2a-EBs" id="XPM-wz-7V6">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="c0L-lx-Dp1" id="w89-8q-gVC"/>
+                            <outlet property="delegate" destination="c0L-lx-Dp1" id="9mk-xq-wZM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="l2W-dk-jTJ"/>
+                    <connections>
+                        <segue destination="ym1-VM-jBD" kind="show" identifier="goToNotes" id="Nnm-Dh-o6Q"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TpI-Bv-QLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1803" y="115"/>
+        </scene>
         <!--Notes-->
         <scene sceneID="oSh-LB-GSN">
             <objects>
@@ -48,7 +80,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MqA-LX-n9Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1884.057971014493" y="114.50892857142857"/>
+            <point key="canvasLocation" x="2667" y="115"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hga-rY-O9q">
@@ -62,7 +94,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ym1-VM-jBD" kind="relationship" relationship="rootViewController" id="v53-0A-oeD"/>
+                        <segue destination="c0L-lx-Dp1" kind="relationship" relationship="rootViewController" id="SyR-ZR-GRj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="89V-vU-Amc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

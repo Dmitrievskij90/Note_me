@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C28A33E25D59299003C10AC /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28A33D25D59299003C10AC /* CategoryTableViewController.swift */; };
 		5C82E6AA25D44793008F6F4F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C82E6A825D44793008F6F4F /* DataModel.xcdatamodeld */; };
 		5CF60D3725D2F3D200CBFB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF60D3625D2F3D200CBFB34 /* AppDelegate.swift */; };
 		5CF60D3925D2F3D200CBFB34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF60D3825D2F3D200CBFB34 /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C28A33D25D59299003C10AC /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		5C82E6A925D44793008F6F4F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		5CF60D3325D2F3D200CBFB34 /* NoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF60D3625D2F3D200CBFB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				5CF60D3A25D2F3D200CBFB34 /* NoteViewController.swift */,
+				5C28A33D25D59299003C10AC /* CategoryTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			files = (
 				5CF60D3B25D2F3D200CBFB34 /* NoteViewController.swift in Sources */,
 				5C82E6AA25D44793008F6F4F /* DataModel.xcdatamodeld in Sources */,
+				5C28A33E25D59299003C10AC /* CategoryTableViewController.swift in Sources */,
 				5CF60D3725D2F3D200CBFB34 /* AppDelegate.swift in Sources */,
 				5CF60D3925D2F3D200CBFB34 /* SceneDelegate.swift in Sources */,
 			);
