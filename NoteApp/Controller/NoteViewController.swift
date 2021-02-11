@@ -12,8 +12,7 @@ import CoreData
 class NoteViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    
+
     var notesArray = [Notes]()
     
     let defaults = UserDefaults.standard

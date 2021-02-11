@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Category Table View Controller-->
+        <!--NotesApp-->
         <scene sceneID="TCL-fI-Cyw">
             <objects>
                 <tableViewController id="c0L-lx-Dp1" customClass="CategoryTableViewController" customModule="NoteApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,14 @@
                             <outlet property="delegate" destination="c0L-lx-Dp1" id="9mk-xq-wZM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="l2W-dk-jTJ"/>
+                    <navigationItem key="navigationItem" title="NotesApp" largeTitleDisplayMode="always" id="l2W-dk-jTJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5e6-Mq-l5X">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="c0L-lx-Dp1" id="cS2-D7-u9t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="ym1-VM-jBD" kind="show" identifier="goToNotes" id="Nnm-Dh-o6Q"/>
                     </connections>
@@ -90,6 +97,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BTt-AV-c54">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.25490196078431371" green="0.34509803921568627" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
