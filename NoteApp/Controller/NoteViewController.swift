@@ -19,6 +19,12 @@ class NoteViewController: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var selectedCategory: Category? {
+        didSet {
+            loadNotes()
+        }
+    }
+    
 //     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Note.plist")
 
     override func viewDidLoad() {
@@ -37,7 +43,7 @@ class NoteViewController: UITableViewController {
         //        if let notes = defaults.array(forKey: "notes") as? [Note] {
         //            notesArray = notes
         //        }
-                loadNotes()
+//                loadNotes()
     }
 
 
@@ -84,6 +90,8 @@ class NoteViewController: UITableViewController {
             newNote.title = textField.text!
             newNote.done = false
             
+            newNote.parentCategory = self.selectedCategory
+            
             self.notesArray.append(newNote)
             
 //            self.defaults.set(self.notesArray, forKey: "notes")
@@ -116,9 +124,18 @@ class NoteViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadNotes(with request: NSFetchRequest<Notes> = Notes.fetchRequest()) {
+    func loadNotes(with request: NSFetchRequest<Notes> = Notes.fetchRequest(), predicate: NSPredicate? = nil) {
 
 //     let request: NSFetchRequest<Notes> = Notes.fetchRequest()
+        
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+        
+        if let additionalPredicate = predicate {
+            
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
         
         do{
             notesArray = try context.fetch(request)
@@ -136,11 +153,11 @@ extension NoteViewController: UISearchBarDelegate {
         
         let request: NSFetchRequest<Notes> = Notes.fetchRequest()
         
-        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
         
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
-        loadNotes(with: request)
+        loadNotes(with: request, predicate: predicate)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

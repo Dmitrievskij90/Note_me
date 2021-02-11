@@ -90,5 +90,22 @@ class CategoryTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //MARK: - Table View Delegate methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "goToNotes", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! NoteViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categories[indexPath.row]
+        }
+        
+    }
 
 }
