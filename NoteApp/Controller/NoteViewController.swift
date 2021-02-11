@@ -12,12 +12,12 @@ import CoreData
 class NoteViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-
-    var notesArray = [Notes]()
+    
+    private  var notesArray = [Notes]()
     
     let defaults = UserDefaults.standard
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var selectedCategory: Category? {
         didSet {
@@ -53,7 +53,7 @@ class NoteViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.noteCell, for: indexPath)
         
         cell.textLabel?.text = notesArray[indexPath.row].title
         
@@ -113,7 +113,7 @@ class NoteViewController: UITableViewController {
         
     }
     
-    func saveData() {
+   private func saveData() {
         
         do {
             try context.save()
@@ -124,7 +124,7 @@ class NoteViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadNotes(with request: NSFetchRequest<Notes> = Notes.fetchRequest(), predicate: NSPredicate? = nil) {
+  private  func loadNotes(with request: NSFetchRequest<Notes> = Notes.fetchRequest(), predicate: NSPredicate? = nil) {
 
 //     let request: NSFetchRequest<Notes> = Notes.fetchRequest()
         

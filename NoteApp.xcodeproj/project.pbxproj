@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C28A33E25D59299003C10AC /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28A33D25D59299003C10AC /* CategoryTableViewController.swift */; };
+		5C28A34025D59D27003C10AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28A33F25D59D27003C10AC /* Constants.swift */; };
 		5C82E6AA25D44793008F6F4F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C82E6A825D44793008F6F4F /* DataModel.xcdatamodeld */; };
 		5CF60D3725D2F3D200CBFB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF60D3625D2F3D200CBFB34 /* AppDelegate.swift */; };
 		5CF60D3925D2F3D200CBFB34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF60D3825D2F3D200CBFB34 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		5C28A33D25D59299003C10AC /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		5C28A33F25D59D27003C10AC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5C82E6A925D44793008F6F4F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		5CF60D3325D2F3D200CBFB34 /* NoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF60D3625D2F3D200CBFB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				5CF60D3F25D2F3D400CBFB34 /* Assets.xcassets */,
 				5CF60D4125D2F3D400CBFB34 /* LaunchScreen.storyboard */,
 				5CF60D4425D2F3D400CBFB34 /* Info.plist */,
+				5C28A33F25D59D27003C10AC /* Constants.swift */,
 			);
 			path = NoteApp;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				5C28A33E25D59299003C10AC /* CategoryTableViewController.swift in Sources */,
 				5CF60D3725D2F3D200CBFB34 /* AppDelegate.swift in Sources */,
 				5CF60D3925D2F3D200CBFB34 /* SceneDelegate.swift in Sources */,
+				5C28A34025D59D27003C10AC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

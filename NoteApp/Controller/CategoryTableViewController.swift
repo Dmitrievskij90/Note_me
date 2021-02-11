@@ -11,15 +11,15 @@ import CoreData
 
 class CategoryTableViewController: UITableViewController {
     
-    var categories = [Category]()
+    private var categories = [Category]()
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadCategories()
-
+        
     }
     
     //MARK: - TableView Data sourse methods
@@ -30,14 +30,14 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.categoryCell, for: indexPath)
         
         cell.textLabel?.text = categories[indexPath.row].name
         
         return cell
     }
-
-
+    
+    
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -47,12 +47,12 @@ class CategoryTableViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
-        let newNote = Category(context: self.context)
+            let newNote = Category(context: self.context)
             newNote.name = textField.text!
             
-        self.categories.append(newNote)
+            self.categories.append(newNote)
             
-        self.saveData()
+            self.saveData()
         }
         
         alert.addAction(action)
@@ -60,15 +60,15 @@ class CategoryTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
         
         alert.addTextField { (alertTextField) in
-        alertTextField.placeholder = "My note"
+            alertTextField.placeholder = "My note"
             
-        textField = alertTextField
+            textField = alertTextField
         }
     }
     
     //MARK: - Data manipulation methods
     
-        func saveData() {
+    private func saveData() {
         
         do {
             try context.save()
@@ -78,7 +78,7 @@ class CategoryTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadCategories() {
+    private func loadCategories() {
         
         let request: NSFetchRequest<Category> = Category.fetchRequest()
         
@@ -94,7 +94,7 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "goToNotes", sender: self)
+        performSegue(withIdentifier: K.notesSegue, sender: self)
         
     }
     
@@ -107,5 +107,5 @@ class CategoryTableViewController: UITableViewController {
         }
         
     }
-
+    
 }
