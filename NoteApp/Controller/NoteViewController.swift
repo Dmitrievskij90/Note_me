@@ -11,6 +11,9 @@ import CoreData
 
 class NoteViewController: UITableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     var notesArray = [Notes]()
     
     let defaults = UserDefaults.standard
@@ -21,6 +24,8 @@ class NoteViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
@@ -126,3 +131,22 @@ class NoteViewController: UITableViewController {
     
 }
 
+extension NoteViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let request: NSFetchRequest<Notes> = Notes.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        
+        do {
+            notesArray = try context.fetch(request)
+        } catch {
+            print("Error \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+}
