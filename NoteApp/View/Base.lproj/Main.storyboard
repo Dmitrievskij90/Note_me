@@ -100,26 +100,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uf0-k9-yi5">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="c0L-lx-Dp1" kind="show" id="UbW-Aq-JfS"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="al6-D1-N0z">
+                                <rect key="frame" x="82" y="161" width="250" height="531"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7t-dE-XWk">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="57.5"/>
+                                        <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="EEY-MJ-9S3">
+                                        <rect key="frame" x="0.0" y="144.5" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="TT2-ZS-DN9"/>
+                                            <constraint firstAttribute="height" constant="250" id="n2v-T6-fF8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSM-cj-Peo">
+                                        <rect key="frame" x="0.0" y="481.5" width="250" height="49.5"/>
+                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="32"/>
+                                        <state key="normal" title="Get started">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="c0L-lx-Dp1" kind="show" id="bjg-7c-S2S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="c7t-dE-XWk" secondAttribute="trailing" id="2c1-bP-ye7"/>
+                                    <constraint firstAttribute="bottom" secondItem="gSM-cj-Peo" secondAttribute="bottom" id="3JZ-uK-NqO"/>
+                                    <constraint firstItem="gSM-cj-Peo" firstAttribute="leading" secondItem="al6-D1-N0z" secondAttribute="leading" id="JS1-KS-hwF"/>
+                                    <constraint firstAttribute="trailing" secondItem="gSM-cj-Peo" secondAttribute="trailing" id="VKO-SL-Jck"/>
+                                    <constraint firstItem="EEY-MJ-9S3" firstAttribute="leading" secondItem="al6-D1-N0z" secondAttribute="leading" id="YT2-Dq-ZXj"/>
+                                    <constraint firstItem="EEY-MJ-9S3" firstAttribute="top" secondItem="c7t-dE-XWk" secondAttribute="bottom" constant="87" id="d4K-2K-oRL"/>
+                                    <constraint firstAttribute="trailing" secondItem="EEY-MJ-9S3" secondAttribute="trailing" id="fGw-d6-baU"/>
+                                    <constraint firstItem="gSM-cj-Peo" firstAttribute="top" secondItem="EEY-MJ-9S3" secondAttribute="bottom" constant="87" id="rPj-c3-hSi"/>
+                                    <constraint firstItem="EEY-MJ-9S3" firstAttribute="top" secondItem="c7t-dE-XWk" secondAttribute="bottom" constant="87" id="scN-od-MPb"/>
+                                    <constraint firstItem="c7t-dE-XWk" firstAttribute="leading" secondItem="al6-D1-N0z" secondAttribute="leading" id="wg3-ql-GRr"/>
+                                    <constraint firstItem="c7t-dE-XWk" firstAttribute="top" secondItem="al6-D1-N0z" secondAttribute="top" id="x35-MF-nG8"/>
+                                    <constraint firstItem="gSM-cj-Peo" firstAttribute="top" secondItem="EEY-MJ-9S3" secondAttribute="bottom" constant="87" id="xyk-5u-bfw"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hbu-xm-7k5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Uf0-k9-yi5" firstAttribute="centerY" secondItem="NaY-fQ-RbG" secondAttribute="centerY" id="D5Y-Il-9N8"/>
-                            <constraint firstItem="Uf0-k9-yi5" firstAttribute="centerX" secondItem="NaY-fQ-RbG" secondAttribute="centerX" id="q9Z-9z-abJ"/>
+                            <constraint firstItem="Hbu-xm-7k5" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="al6-D1-N0z" secondAttribute="trailing" constant="82" id="DVV-XB-0lo"/>
+                            <constraint firstItem="al6-D1-N0z" firstAttribute="top" relation="lessThanOrEqual" secondItem="Hbu-xm-7k5" secondAttribute="top" constant="21" id="GMu-Yw-qan"/>
+                            <constraint firstItem="al6-D1-N0z" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Hbu-xm-7k5" secondAttribute="leading" constant="82" id="Zeo-Hh-cIf"/>
+                            <constraint firstItem="Hbu-xm-7k5" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="al6-D1-N0z" secondAttribute="bottom" constant="170" id="t93-ju-arg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jyw-Vx-mlv"/>
+                    <connections>
+                        <outlet property="welcomeView" destination="EEY-MJ-9S3" id="fQ7-8b-I5J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EnK-rh-W21" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2268.1159420289855" y="114.50892857142857"/>
+            <point key="canvasLocation" x="2266.666666666667" y="114.50892857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jws-YA-jUM">
@@ -141,6 +181,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pen" width="500" height="499"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

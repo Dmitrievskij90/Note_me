@@ -9,11 +9,16 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
+    
+    @IBOutlet weak var welcomeView: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        welcomeView.image = UIImage(named: "pen")
+        welcomeView.contentMode = .scaleAspectFit
 
-        // Do any additional setup after loading the view.
     }
     
 
