@@ -15,7 +15,7 @@ class NoteViewController: SwipeTableViewController {
     
     private  var notesArray = [Notes]()
     
-    let defaults = UserDefaults.standard
+//    let defaults = UserDefaults.standard
     
     private  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -32,7 +32,7 @@ class NoteViewController: SwipeTableViewController {
         
         searchBar.delegate = self
         
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         //        print(dataFilePath)
         //
@@ -45,7 +45,13 @@ class NoteViewController: SwipeTableViewController {
         //        }
 //                loadNotes()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+           title = selectedCategory?.name
+        
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notesArray.count
