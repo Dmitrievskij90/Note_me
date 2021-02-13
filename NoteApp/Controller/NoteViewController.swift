@@ -53,7 +53,7 @@ class NoteViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.noteCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
         
         cell.textLabel?.text = notesArray[indexPath.row].title
         

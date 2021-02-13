@@ -10,8 +10,7 @@ import Foundation
 
 struct K {
     
-    static let noteCell = "NoteCell"
-    static let categoryCell = "CategoryCell"
+    static let cell = "Cell"
     static let notesSegue = "goToNotes"
     
 }

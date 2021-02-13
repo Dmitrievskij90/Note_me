@@ -8,9 +8,8 @@
 
 import UIKit
 import CoreData
-import SwipeCellKit
 
-class CategoryTableViewController: UITableViewController {
+class CategoryTableViewController: SwipeTableViewController {
     
     private var categories = [Category]()
     
@@ -33,9 +32,11 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.categoryCell, for: indexPath) as! SwipeTableViewCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: K.categoryCell, for: indexPath) as! SwipeTableViewCell
+//
+//        cell.delegate = self
         
-        cell.delegate = self
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         cell.textLabel?.text = categories[indexPath.row].name
         
@@ -72,6 +73,16 @@ class CategoryTableViewController: UITableViewController {
     }
     
     //MARK: - Data manipulation methods
+    
+    override func updateModel(at indexPath: IndexPath) {
+        
+        let categoryFordeletion = self.categories[indexPath.row]
+
+            context.delete(categoryFordeletion)
+            categories.remove(at: indexPath.row)
+            saveData()
+        
+    }
     
     private func saveData() {
         
@@ -115,31 +126,30 @@ class CategoryTableViewController: UITableViewController {
     
 }
 
-extension CategoryTableViewController : SwipeTableViewCellDelegate {
-    
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        
-        guard orientation == .right else { return nil }
-
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-          
-            let categoryFordeletion = self.categories[indexPath.row]
-                
-            self.context.delete(categoryFordeletion)
-            self.categories.remove(at: indexPath.row)
-            self.saveData()
-
-//            tableView.reloadData()
-        }
-
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "Trash Icon")
-
-        return [deleteAction]
-        
-    }
-    
-    
-    
-}
+//extension CategoryTableViewController : SwipeTableViewCellDelegate {
+//
+//
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+//
+//        guard orientation == .right else { return nil }
+//
+//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+//
+//            let categoryFordeletion = self.categories[indexPath.row]
+//
+//            self.context.delete(categoryFordeletion)
+//            self.categories.remove(at: indexPath.row)
+//            self.saveData()
+//
+//        }
+//
+//        // customize the action appearance
+//        deleteAction.image = UIImage(named: "Trash Icon")
+//
+//        return [deleteAction]
+//
+//    }
+//
+//
+//
+//}
