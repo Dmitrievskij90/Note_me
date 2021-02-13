@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NoteViewController: UITableViewController {
+class NoteViewController: SwipeTableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -53,7 +53,7 @@ class NoteViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cell, for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         cell.textLabel?.text = notesArray[indexPath.row].title
         
@@ -77,6 +77,8 @@ class NoteViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
+    
+    //MARK: - Actions
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -113,6 +115,17 @@ class NoteViewController: UITableViewController {
         
     }
     
+    //MARK: - Data manipulating methods
+    
+    override func updateModel(at indexPath: IndexPath) {
+        
+        let categoryFordeletion = self.notesArray[indexPath.row]
+        
+        context.delete(categoryFordeletion)
+        notesArray.remove(at: indexPath.row)
+        saveData()
+    }
+    
    private func saveData() {
         
         do {
@@ -146,6 +159,8 @@ class NoteViewController: UITableViewController {
     }
     
 }
+
+//MARK: - SearcBardelegate methods
 
 extension NoteViewController: UISearchBarDelegate {
     

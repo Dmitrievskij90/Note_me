@@ -17,9 +17,7 @@ class CategoryTableViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.rowHeight = 80.0
-        
+    
         loadCategories()
         
     }
@@ -81,7 +79,6 @@ class CategoryTableViewController: SwipeTableViewController {
             context.delete(categoryFordeletion)
             categories.remove(at: indexPath.row)
             saveData()
-        
     }
     
     private func saveData() {
