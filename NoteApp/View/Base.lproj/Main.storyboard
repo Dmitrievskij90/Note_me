@@ -100,8 +100,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="al6-D1-N0z">
-                                <rect key="frame" x="82" y="161" width="250" height="531"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="al6-D1-N0z">
+                                <rect key="frame" x="82" y="235" width="250" height="426.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7t-dE-XWk">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="57.5"/>
@@ -110,14 +110,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pen" translatesAutoresizingMaskIntoConstraints="NO" id="EEY-MJ-9S3">
-                                        <rect key="frame" x="0.0" y="144.5" width="250" height="250"/>
+                                        <rect key="frame" x="0.0" y="92.5" width="250" height="250"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="TT2-ZS-DN9"/>
                                             <constraint firstAttribute="height" constant="250" id="n2v-T6-fF8"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSM-cj-Peo">
-                                        <rect key="frame" x="0.0" y="481.5" width="250" height="49.5"/>
+                                        <rect key="frame" x="0.0" y="377.5" width="250" height="49"/>
                                         <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="32"/>
                                         <state key="normal" title="Get started">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,29 +127,13 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="c7t-dE-XWk" secondAttribute="trailing" id="2c1-bP-ye7"/>
-                                    <constraint firstAttribute="bottom" secondItem="gSM-cj-Peo" secondAttribute="bottom" id="3JZ-uK-NqO"/>
-                                    <constraint firstItem="gSM-cj-Peo" firstAttribute="leading" secondItem="al6-D1-N0z" secondAttribute="leading" id="JS1-KS-hwF"/>
-                                    <constraint firstAttribute="trailing" secondItem="gSM-cj-Peo" secondAttribute="trailing" id="VKO-SL-Jck"/>
-                                    <constraint firstItem="EEY-MJ-9S3" firstAttribute="leading" secondItem="al6-D1-N0z" secondAttribute="leading" id="YT2-Dq-ZXj"/>
-                                    <constraint firstItem="EEY-MJ-9S3" firstAttribute="top" secondItem="c7t-dE-XWk" secondAttribute="bottom" constant="87" id="d4K-2K-oRL"/>
-                                    <constraint firstAttribute="trailing" secondItem="EEY-MJ-9S3" secondAttribute="trailing" id="fGw-d6-baU"/>
-                                    <constraint firstItem="gSM-cj-Peo" firstAttribute="top" secondItem="EEY-MJ-9S3" secondAttribute="bottom" constant="87" id="rPj-c3-hSi"/>
-                                    <constraint firstItem="EEY-MJ-9S3" firstAttribute="top" secondItem="c7t-dE-XWk" secondAttribute="bottom" constant="87" id="scN-od-MPb"/>
-                                    <constraint firstItem="c7t-dE-XWk" firstAttribute="leading" secondItem="al6-D1-N0z" secondAttribute="leading" id="wg3-ql-GRr"/>
-                                    <constraint firstItem="c7t-dE-XWk" firstAttribute="top" secondItem="al6-D1-N0z" secondAttribute="top" id="x35-MF-nG8"/>
-                                    <constraint firstItem="gSM-cj-Peo" firstAttribute="top" secondItem="EEY-MJ-9S3" secondAttribute="bottom" constant="87" id="xyk-5u-bfw"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hbu-xm-7k5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Hbu-xm-7k5" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="al6-D1-N0z" secondAttribute="trailing" constant="82" id="DVV-XB-0lo"/>
-                            <constraint firstItem="al6-D1-N0z" firstAttribute="top" relation="lessThanOrEqual" secondItem="Hbu-xm-7k5" secondAttribute="top" constant="21" id="GMu-Yw-qan"/>
-                            <constraint firstItem="al6-D1-N0z" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Hbu-xm-7k5" secondAttribute="leading" constant="82" id="Zeo-Hh-cIf"/>
-                            <constraint firstItem="Hbu-xm-7k5" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="al6-D1-N0z" secondAttribute="bottom" constant="170" id="t93-ju-arg"/>
+                            <constraint firstItem="al6-D1-N0z" firstAttribute="centerX" secondItem="NaY-fQ-RbG" secondAttribute="centerX" id="5qn-JW-SNH"/>
+                            <constraint firstItem="al6-D1-N0z" firstAttribute="centerY" secondItem="NaY-fQ-RbG" secondAttribute="centerY" id="u4C-7D-nAy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jyw-Vx-mlv"/>
